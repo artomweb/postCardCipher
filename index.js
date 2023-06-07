@@ -6,7 +6,7 @@ const margin = 50;
 
 const message = "This is a super secret message encoded onto a postcard meet me at the clock tower at six on the fith";
 
-const setTextSize = 50;
+const setTextSize = 30;
 
 const FOLD = true;
 
@@ -30,7 +30,7 @@ function draw() {
   console.log(gratePositions);
 
   let widthOfChar = setTextSize * 0.601;
-  let lineHeight = 55;
+  let lineHeight = setTextSize;
   let currentLineY = margin + lineHeight;
   let lineX = margin;
 
@@ -87,7 +87,7 @@ function setLineDash(list) {
 
 function getWordsToDisplay(mssg) {
   let widthOfChar = setTextSize * 0.601;
-  let lineHeight = 55;
+  let lineHeight = setTextSize;
 
   let numLines = floor((height / 2 - margin * 2) / lineHeight);
   let lineWidth = width * (83 / paperWidth) - 2 * margin;
@@ -127,7 +127,7 @@ function getWordsToDisplay(mssg) {
         fillerWords.push(thisWord);
         charsToBeFilled -= thisWord.length;
       } else {
-        if (tries > 4) {
+        if (tries > 2) {
           // Try 4 times to find a word that fits on the line
           break;
         } else {
