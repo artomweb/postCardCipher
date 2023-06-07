@@ -6,7 +6,7 @@ const margin = 50;
 
 const message = "This is a super secret message encoded onto a postcard meet me at the clock tower at six on the fith";
 
-const setTextSize = 30;
+const setTextSize = 40;
 
 const FOLD = true;
 
