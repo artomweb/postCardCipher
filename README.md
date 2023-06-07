@@ -12,12 +12,12 @@ The grille pattern should be printed on the back of the postcard. The Post Card 
 
 The front will look like this:
 
-![](imgs\exampleFront.png)
+![](imgs/exampleFront.png)
 
 The back will look like this:
 
-![](imgs\exampleBack.png)
+![](imgs/exampleBack.png)
 
 After folding the post card looks like this over a light:
 
-![](imgs\exampleOverLight.jpg)
+![](imgs/exampleOverLight.jpg)
