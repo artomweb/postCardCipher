@@ -10,6 +10,8 @@ The default operation is to create a postcard that needs to be folded first befo
 - The grille is sent with the text. Usually the text and the grille are stored or send separately
 - A limited length of message can be sent. The space for the text is only a quarter of the postcard. The longer the message, the more of the text is the message and the easier it is to read. If the post card is not folded then twice as much text can be written. The text size can also be decreased to fit more text on the card, at the price of legibility
 - Entire words of the original message are present in the text. Original grille techniques will use fragments of words in the text to create the words in the message.
+- The message can be read without folding the card by referencing the back
+- The message does not use all of the lines available
 
 ## Usage
 

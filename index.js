@@ -4,11 +4,12 @@ const paperHeight = 105;
 
 const margin = 50;
 
-const message = "This is a super secret message encoded onto a postcard meet me at the clock tower at six on the fith";
+const message = "This is a super secret message encoded onto a postcard meet me at the clock tower at six on the fifth";
 
-const setTextSize = 40;
+const setTextSize = 45;
 
 const FOLD = true;
+const postCardTemplate = false;
 
 function setup() {
   createCanvas((paperWidth * DPI) / 25.4, (paperHeight * DPI) / 25.4, SVG);
@@ -54,19 +55,24 @@ function draw() {
     }
   }
 
-  rectMode(CORNER);
-  // Drawing vertical divide line
-  line(width * (83 / paperWidth), margin, width * (83 / paperWidth), height - margin);
+  if (postCardTemplate) {
+    rectMode(CORNER);
+    // Drawing vertical divide line
+    line(width * (83 / paperWidth), margin, width * (83 / paperWidth), height - margin);
 
-  // Drawing address lines
-  let currentHeight = height * (49 / paperHeight);
-  let lineSpacing = height * (10 / paperHeight);
-  let lineLength = width * (54 / paperWidth);
-  for (let i = 0; i < 6; i++) {
-    line(width - margin - lineLength, currentHeight, width - margin, currentHeight);
-    currentHeight += lineSpacing;
+    // Drawing address lines
+    let currentHeight = height * (49 / paperHeight);
+    let lineSpacing = height * (10 / paperHeight);
+    let lineLength = width * (54 / paperWidth);
+    for (let i = 0; i < 6; i++) {
+      line(width - margin - lineLength, currentHeight, width - margin, currentHeight);
+      currentHeight += lineSpacing;
+    }
+    // Drawing stamp location
+    setLineDash([15, 15]);
+    rect(width - width * (21 / paperWidth) - margin, margin, width * (21 / paperWidth), height * (24 / paperHeight));
   }
-
+  noLoop();
   // Drawing fold line
   // push();
   // stroke(100);
@@ -74,11 +80,6 @@ function draw() {
   // setLineDash([15, 40]);
   // line(margin, height / 2, width - margin, height / 2);
   // pop();
-
-  // Drawing stamp location
-  setLineDash([15, 15]);
-  rect(width - width * (21 / paperWidth) - margin, margin, width * (21 / paperWidth), height * (24 / paperHeight));
-  noLoop();
 }
 
 function setLineDash(list) {
@@ -153,7 +154,9 @@ function getWordsToDisplay(mssg) {
       } else {
         yPos = currentLineY + lineHeight / 4; // Don't reflect
       }
-      theseGratePositions.push([margin + charsToLeft * widthOfChar + (word.length * widthOfChar) / 2, yPos, word.length * widthOfChar, lineHeight - lineHeight / 4]);
+
+      xPos = width - (margin + charsToLeft * widthOfChar + (word.length * widthOfChar) / 2); // Reflect around y-axis as it's on the back
+      theseGratePositions.push([xPos, yPos, word.length * widthOfChar, lineHeight - lineHeight / 4]);
     }
 
     currentLineY += lineHeight; // Go to next line
